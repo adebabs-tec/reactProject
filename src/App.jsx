@@ -18,8 +18,8 @@ function App() {
   return (
     <>
       <h1>Hello World!</h1>
-      <h3>{count}</h3>
-      <button onClick={() => setCount(count + 1)}>Click Me</button>
+      <h3>Count is: {count}</h3>
+      <button onClick={() => setCount((prev) => prev + 1)}>Click Me</button>
       <h3>Window Current Width</h3>
       <h1>{size} PX</h1>
     </>
