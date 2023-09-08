@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
 import './App.css'
+import Form from './Form'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
       <button onClick={() => setCount((prev) => prev + 1)}>Click Me</button>
       <h3>Window Current Width</h3>
       <h1>{size} PX</h1>
+      <Form />
     </>
   )
 }

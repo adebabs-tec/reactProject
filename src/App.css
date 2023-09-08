@@ -4,3 +4,33 @@
     padding: 2rem;
     text-align: center;
 }
+
+.form {
+    display: grid;
+    gap: 20px;
+}
+
+.contact {
+    font-size: 50px;
+    color: cornflowerblue;
+}
+
+.form input,
+.btn {
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid slateblue;
+    outline: none;
+}
+
+.btn {
+    width: 100px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.btn:hover {
+    background-color: blueviolet;
+    transition: 0.2s ease-in-out;
+    color: white;
+}
