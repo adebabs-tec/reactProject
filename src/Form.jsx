@@ -1,6 +1,6 @@
 // import React from 'react'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Form = () => {
   const [form, setForm] = useState({
@@ -10,12 +10,16 @@ const Form = () => {
     email: '',
     password: '',
   })
+
+  useEffect(()=> {
   const handleClick = (e) => {
-      setForm( prev => ({
+      setForm( (prev) => ({
           ...prev,
           e.target.name = e.target.value
       }))
   }
+  }, [])
+
   return (
     <>
       <h1 className="contact">Contact Me</h1>
