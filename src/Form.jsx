@@ -1,6 +1,6 @@
 // import React from 'react'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const Form = () => {
   const [form, setForm] = useState({
@@ -11,14 +11,16 @@ const Form = () => {
     password: '',
   })
 
-  useEffect(()=> {
   const handleClick = (e) => {
-      setForm( (prev) => ({
-          ...prev,
-          e.target.name = e.target.value
-      }))
+    setForm(() => ({
+      ...form,
+      [e.target.name]: e.target.value,
+    }))
   }
-  }, [])
+
+  const handleSubmit = () => {
+    alert('Form Submitted!')
+  }
 
   return (
     <>
