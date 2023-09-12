@@ -1,31 +1,37 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
 import './App.css'
-// import Form from './Form'
-import { AppNew } from './AppNew'
 
+const url = 'https://api.github.com/users'
 function App() {
-  const [count, setCount] = useState(0)
-  const [size, setSize] = useState(window.innerWidth)
+  const [users, setUsers] = useState([])
 
-  const changeSize = () => {
-    setSize(window.innerWidth)
+  const fetchUsers = () => {
+    return fetch(url)
+      .then((res) => res.json())
+      .then((data) => setUsers(data))
   }
 
   useEffect(() => {
-    console.log('Hi, render!')
-    window.addEventListener('resize', changeSize)
+    fetchUsers()
   }, [])
 
   return (
     <>
-      <h1>Hello World!</h1>
-      <h3>Count is: {count}</h3>
-      <button onClick={() => setCount((prev) => prev + 1)}>Click Me</button>
-      <h3>Window Current Width</h3>
-      <h1>{size} PX</h1>
-      <AppNew />
-      {/* <Form /> */}
+      <ul>
+        {users.map((user) => {
+          const { id, login, avatar_url, html_url } = user
+          return (
+            <li key={id}>
+              <img src={avatar_url} alt={login} />
+              <div className="profile">
+                <span>{login}</span>
+                <a href={html_url}>Profile</a>
+              </div>
+            </li>
+          )
+        })}
+      </ul>
     </>
   )
 }

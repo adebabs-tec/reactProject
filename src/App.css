@@ -5,32 +5,31 @@
     text-align: center;
 }
 
-.form {
-    display: grid;
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
     gap: 20px;
 }
 
-.contact {
-    font-size: 50px;
-    color: cornflowerblue;
+li {
+    background-color: white;
+    display: flex;
 }
 
-.form input,
-.btn {
-    padding: 15px;
-    border-radius: 8px;
-    border: 2px solid slateblue;
-    outline: none;
+img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
 }
 
-.btn {
-    width: 100px;
-    margin: 0 auto;
-    padding: 10px;
+div.profile {
+    display: block;
 }
 
-.btn:hover {
-    background-color: blueviolet;
-    transition: 0.2s ease-in-out;
-    color: white;
+@media (min-width: 480px) {
+    ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
