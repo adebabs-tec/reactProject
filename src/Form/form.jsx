@@ -7,44 +7,57 @@ const Form = () => {
   const [email, setEmail] = useState('')
   const [people, setPeople] = useState([])
 
-  const handleClick = () => {
-    people.map((p) => {
-      return setPeople(...people, p)
-    })
-  }
+  // const handleClick = () => {}
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const person = { id: new Date().getDate().toString(), firstName, email }
+    if (firstName && email) {
+      setPeople([...people, person])
+    } else {
+      console.log('empty values')
+    }
+
     setEmail('')
     setEmail('')
   }
   return (
     <>
-      <form>
-        <label>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="firstname">
           Name:
           <input
             type="text"
-            name={firstName}
+            name="name"
+            value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
         </label>
-        <label>
+        <label htmlFor="email">
           Email:
           <input
             type="email"
-            name={email}
+            name="email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
 
-        <button className="btn" onSubmit={handleSubmit}>
+        <button type="submit" className="btn">
           Add Person
         </button>
       </form>
 
-      <div className="people" onClick={handleClick}>
-        {people}
+      <div className="people">
+        {people.map((person) => {
+          const { id, firstName, email } = person
+          return (
+            <div key={id}>
+              <h1>{firstName}</h1>
+              <span>{email}</span>
+            </div>
+          )
+        })}
       </div>
     </>
   )

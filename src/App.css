@@ -65,3 +65,9 @@ form button.btn {
     color: azure;
     margin: 10px auto;
 }
+
+.people {
+    background-color: wheat;
+    justify-content: space-between;
+    color: black;
+}
