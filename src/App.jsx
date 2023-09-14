@@ -1,5 +1,6 @@
-import Form from './Form/form'
+// import Form from './Form/form'
 // import FetchData from './Form/fetchData'
+import Form from './compositeList/Form'
 import './App.css'
 
 function App() {
