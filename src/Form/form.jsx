@@ -18,7 +18,7 @@ const Form = () => {
       console.log('empty values')
     }
 
-    setEmail('')
+    setFirstName('')
     setEmail('')
   }
   return (
@@ -48,13 +48,13 @@ const Form = () => {
         </button>
       </form>
 
-      <div className="people">
+      <div>
         {people.map((person) => {
           const { id, firstName, email } = person
           return (
-            <div key={id}>
-              <h1>{firstName}</h1>
-              <span>{email}</span>
+            <div key={id} className="person">
+              <h2>{firstName}</h2>
+              <h3>{email}</h3>
             </div>
           )
         })}
