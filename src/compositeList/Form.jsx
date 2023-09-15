@@ -8,48 +8,68 @@ const Form = () => {
     email: '',
     age: '',
   })
-  const [people, setPeople] = useState()
+  const [people, setPeople] = useState([])
 
-  const handleChange = () => {
-    setPerson((person) => {
-        [...person],
-        [e.target.name] : e.target.value
-    })
+  const handleChange = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    setPerson({ ...person, [name]: value })
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-   if(person.firstName && person.email && person.age) {
-     const newPerson = {...person, id: new Date().getDate().toString}
-     setPeople({...people, newPerson})
-   }
+    if (person.firstName && person.email && person.age) {
+      const newPerson = { ...person, id: new Date().getDate().toString }
+      setPeople([...people, newPerson])
+      setPerson({
+        firstName: '',
+        email: '',
+        age: '',
+      })
+    }
   }
 
   return (
     <>
       <form onClick={handleSubmit}>
         <label htmlFor="firstName">
+          Name:
           <input
             type="text"
-            name={name}
-            value={firstName}
+            name="firstName"
+            value={person.firstName}
             onChange={handleChange}
           />
+        </label>
+        <label htmlFor="email">
+          Email:
           <input
             type="email"
-            name={email}
-            value={email}
+            name="email"
+            value={person.email}
             onChange={handleChange}
           />
-          <input type="text" name={age} value={age} onChange={handleChange} />
-          <button type="submit">Add Person</button>
         </label>
+        <label htmlFor="age">
+          Age:
+          <input
+            type="text"
+            name="age"
+            value={person.age}
+            onChange={handleChange}
+          />
+        </label>
+        <button type="submit" className="btn">
+          Add Person
+        </button>
       </form>
       <div>
-        {person.map((p) => {
+        {people.map((person) => {
+          const { id, firstName, email, age } = person
           return (
-            <div>
-              <p>{person.firstName}</p>
-              <p>{person.email}</p>
+            <div key={id} className="person">
+              <h2>{firstName}</h2>
+              <span>{age}</span>
+              <h4>{email}</h4>
             </div>
           )
         })}
