@@ -70,6 +70,7 @@ const Form = () => {
               <h2>{firstName}</h2>
               <span>{age}</span>
               <h4>{email}</h4>
+              <button className="btn">delete</button>
             </div>
           )
         })}

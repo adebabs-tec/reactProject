@@ -79,3 +79,11 @@ form button.btn {
     padding: 5px 10px;
     margin-top: 2rem;
 }
+
+.person button {
+    font-size: 15px;
+    background-color: black;
+    color: antiquewhite;
+    font-style: italic;
+    padding: 5px 10px;
+}
